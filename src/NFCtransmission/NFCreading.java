@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import smartmuseumtable.Login;
 import org.nfctools.examples.llcp.LlcpService;
 import org.nfctools.examples.llcp.NDefListenerNuovo;
@@ -37,6 +38,7 @@ public class NFCreading {
                         }
                         if (NDefListenerNuovo.getIstance().hasToken()) {
                             String token = NDefListenerNuovo.getIstance().getRecord();
+                            JOptionPane.showMessageDialog(null, token);
                         }
                     }
                 }
