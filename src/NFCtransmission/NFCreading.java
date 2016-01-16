@@ -19,6 +19,8 @@ import org.nfctools.ndef.NdefListener;
 import org.nfctools.ndef.Record;
 import org.nfctools.utils.LoggingNdefListener;
 import org.nfctools.utils.LoggingStatusListener;
+import smartmuseumtable.Museo;
+import smartmuseumtable.RestClient;
 
 public class NFCreading {
 
@@ -39,6 +41,11 @@ public class NFCreading {
                         if (NDefListenerNuovo.getIstance().hasToken()) {
                             String token = NDefListenerNuovo.getIstance().getRecord();
                             JOptionPane.showMessageDialog(null, token);
+                            RestClient rest=new RestClient("Utente",token);
+                            if(rest.isStatus()){
+                                Museo m=new Museo();
+                                m.setVisible(true);
+                            }
                         }
                     }
                 }

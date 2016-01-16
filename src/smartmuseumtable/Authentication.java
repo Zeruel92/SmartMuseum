@@ -5,6 +5,8 @@
  */
 package smartmuseumtable;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Claudia
@@ -14,14 +16,10 @@ public class Authentication {
     Authentication(String token) {
        RestClient restClient = new RestClient("Utente",token);
       if( restClient.isStatus()){
-          //resto del programma
-       /*    testo = new ClientHttp(getApplicationContext()).execute("GET", "Utente", token).get();
-            int idUtente = Integer.parseInt(testo.substring(testo.indexOf(" ") + 1, testo.indexOf("\n")));
-            testo = new ClientHttp(getApplicationContext()).execute("GET", "Preferenze", Integer.toString(idUtente)).get();
-         */       
-            //qui devo avviare la classe museo che mi fa vedere le preferenze
-          
+        Museo m=new Museo();
+        m.setVisible(true);
       }
+      else JOptionPane.showMessageDialog(null, "Il codice da lei inserito non corrisponde con alcun utente registrato! Riprovi!");
     }
     
     
