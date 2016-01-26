@@ -41,7 +41,6 @@ public class NFCreading {
                         }
                         if (NDefListenerNuovo.getIstance().hasToken()) {
                             String token = NDefListenerNuovo.getIstance().getRecord();
-                            JOptionPane.showMessageDialog(null, token);
                             RestClient rest = new RestClient("Utente", token);
                             if (rest.isStatus()) {
                                 String output = rest.getOutput();

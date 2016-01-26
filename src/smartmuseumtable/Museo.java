@@ -15,7 +15,6 @@ public class Museo extends javax.swing.JFrame {
      * Creates new form Museo
      */
     public Museo() {
-        initComponents();
         int id=Utente.getIstance().getId();
         RestClient rest=new RestClient("Preferenze",id);
         while(!rest.isStatus()){
@@ -32,9 +31,7 @@ public class Museo extends javax.swing.JFrame {
             cognomeAutore[k]=tmp[i+2].substring(tmp[i+2].indexOf(" ")+1);
             k++;
         }
-        JOptionPane.showMessageDialog(null,nomeAutore[0]+nomeAutore[1]);
-        JOptionPane.showMessageDialog(null,n_Opera[0]+n_Opera[1]);
-        JOptionPane.showMessageDialog(null,cognomeAutore[0]+cognomeAutore[1]);
+        initComponents();
     }
 
     /**
