@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Claudia
+ * @author Cosimo Antonaci
+ * @author Gabriele Tramonte
  */
 public class Authentication {
 
