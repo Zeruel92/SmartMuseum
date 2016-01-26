@@ -8,7 +8,9 @@ import org.nfctools.examples.llcp.NDefListenerNuovo;
  * @authors Cosimo Antonaci & Gabriele Tramonte
  */
 public class Museo extends javax.swing.JFrame {
-
+    private String[] n_Opera;
+    private String[] nomeAutore;
+    private String[] cognomeAutore;
     /**
      * Creates new form Museo
      */
@@ -19,7 +21,20 @@ public class Museo extends javax.swing.JFrame {
         while(!rest.isStatus()){
             
         }
-        JOptionPane.showMessageDialog(null, rest.getOutput());
+        String[] tmp=rest.getOutput().split("\n");
+        n_Opera=new String[tmp.length/3];
+        nomeAutore=new String[tmp.length/3];
+        cognomeAutore=new String[tmp.length/3];
+        int k=0;
+        for(int i=0;i<tmp.length;i+=3){
+            n_Opera[k]=tmp[i].substring(tmp[i].indexOf(" ") + 1);
+            nomeAutore[k]=tmp[i+1].substring(tmp[i+1].indexOf(" ")+1);
+            cognomeAutore[k]=tmp[i+2].substring(tmp[i+2].indexOf(" ")+1);
+            k++;
+        }
+        JOptionPane.showMessageDialog(null,nomeAutore[0]+nomeAutore[1]);
+        JOptionPane.showMessageDialog(null,n_Opera[0]+n_Opera[1]);
+        JOptionPane.showMessageDialog(null,cognomeAutore[0]+cognomeAutore[1]);
     }
 
     /**
