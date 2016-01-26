@@ -1,5 +1,7 @@
 package smartmuseumtable;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -56,6 +58,14 @@ public class Museo extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Logout");
+        jButton1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Utente.getIstance().logout();
+                setVisible(false);
+            }
+        });
         //generazioe tabella
         Vector<String> colonne=new Vector<String>();
         colonne.addElement("Nome Dell'Opera");

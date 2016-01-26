@@ -31,7 +31,11 @@ public class Utente {
         email="";
         token="";
     }
-
+    
+    public void logout(){
+        istance=new Utente();
+    }
+    
     public  String getNome() {
         return nome;
     }

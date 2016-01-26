@@ -23,60 +23,44 @@ import smartmuseumtable.Museo;
 import smartmuseumtable.RestClient;
 import smartmuseumtable.Utente;
 
-public class NFCreading {
-
-    public NFCreading() {
+public class NFCreading implements Runnable {
+    private Login l;
+    private Thread t;
+    public NFCreading(Login l) {
+        this.l=l;
         try {
-            Runtime rt = Runtime.getRuntime();
-            Process proc;
             LlcpService nfc = new LlcpService(null, null);
-            Thread t = new Thread(new Runnable() {
-
-                @Override
-                public void run() {
-                    while (true) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException ex) {
-                        }
-                        if (NDefListenerNuovo.getIstance().hasToken()) {
-                            String token = NDefListenerNuovo.getIstance().getRecord();
-                            RestClient rest = new RestClient("Utente", token);
-                            if (rest.isStatus()) {
-                                String output = rest.getOutput();
-                                String[] tmp = output.split("\n");
-                                String email = "";
-                                int id = 0;
-                                String cognome = "";
-                                String nome = "";
-                                for (int i = 0; i < tmp.length; i++) {
-                                    if (tmp[i].contains("email")) {
-                                        email = tmp[i].substring(tmp[i].indexOf(" ") + 1);
-                                    } else if (tmp[i].contains("id")) {
-                                        id = Integer.parseInt(tmp[i].substring((tmp[i].indexOf(" ") + 1)));
-                                    } else if (tmp[i].contains("Nome")) {
-                                        nome = tmp[i].substring(tmp[i].indexOf(" ") + 1);
-                                    } else {
-                                        cognome = tmp[i].substring(tmp[i].indexOf(" ") + 1);
-                                    }
-                                }
-                                Utente.getIstance().setId(id);
-                                Utente.getIstance().setCognome(cognome);
-                                Utente.getIstance().setEmail(email);
-                                Utente.getIstance().setNome(nome);
-                                Utente.getIstance().setToken(token);
-                                Museo m = new Museo();
-                                m.setVisible(true);
-                            }
-                        }
-                    }
-                }
-            });
+            t = new Thread(new ThreadNFC());
             t.start();
+            Thread t2=new Thread(this);
+            t2.start();
             nfc.run();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void run() {
+        
+        while(true){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+               Logger.getLogger(NFCreading.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if((Utente.getIstance().getId()!=-1)&&(this.l.isVisible())){
+                this.t.stop();
+                this.l.setVisible(false);
+            }
+            else if((Utente.getIstance().getId()==-1)&&(!this.l.isVisible())){
+                this.l.setVisible(true);
+                this.t=new Thread(new ThreadNFC());
+                this.t.start();
+                
+            }
+                
+        }
     }
 }

@@ -5,7 +5,12 @@ package smartmuseumtable;
 
 import NFCtransmission.NFCreading;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 
@@ -17,17 +22,17 @@ public class Login extends javax.swing.JFrame {
     
 
     
-    public Login() {
+    public Login() throws MalformedURLException {
         initComponents();
         // Inizializza l'immagine "freccetta rossa"
-        Image img=new ImageIcon("images/pitr_red_arrows_set_5.png").getImage();
-    Image newimg=img.getScaledInstance(150,300,Image.SCALE_SMOOTH);
-    jLabelFreccia.setIcon(new ImageIcon(newimg));
+        Image img = Toolkit.getDefaultToolkit().createImage(new URL("http://52.17.122.110/pitr_red_arrows_set_5.png"));
+        Image newimg=img.getScaledInstance(150,300,Image.SCALE_SMOOTH);
+        jLabelFreccia.setIcon(new ImageIcon(newimg));
+       
         //Inizializza l'immagine per il QrCode dell'app        
-       // Image imgApp=new ImageIcon("C:\\Users\\Claudia\\Desktop/App.jpg").getImage();
-    Image imgApp=new ImageIcon("images/App.jpg").getImage();
-    Image newimgApp=imgApp.getScaledInstance(200,200,Image.SCALE_SMOOTH);
-    jLabelApp.setIcon(new ImageIcon(newimgApp));
+        Image imgApp = Toolkit.getDefaultToolkit().createImage(new URL("http://52.17.122.110/App.jpg"));
+        Image newimgApp=imgApp.getScaledInstance(200,200,Image.SCALE_SMOOTH);
+        jLabelApp.setIcon(new ImageIcon(newimgApp));
     
     }
 
@@ -147,19 +152,24 @@ public static void main(String args[]) throws IOException, InterruptedException 
         }
        
         /* Crea e visualizza il form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+      /*  java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
             }
             
             
             
-        });
+        });*/
+        
        
           /* Avvia subito la classe NFCreading affinche' si metta in ascolto
              attraverso il lettore NFC per la ricezione del TOKEN */
-             NFCreading nfc = new NFCreading();       
-    }
+            
+                Login l=new Login();
+                 l.setVisible(true);
+                  NFCreading nfc = new NFCreading(l); 
+            } 
+                   
 
     // Dichiarazione variabili                     
     private javax.swing.JButton jButtonSignIn;
