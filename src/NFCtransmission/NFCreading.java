@@ -46,10 +46,21 @@ public class NFCreading {
                             if (rest.isStatus()) {
                                 String output = rest.getOutput();
                                 String[] tmp = output.split("\n");
-                                String email = tmp[1].substring(tmp[1].indexOf(" ") + 1);
-                                int id = Integer.parseInt(tmp[2].substring((tmp[2].indexOf(" ") + 1)));
-                                String cognome = tmp[3].substring(tmp[3].indexOf(" ") + 1);
-                                String nome = tmp[5].substring(tmp[5].indexOf(" ") + 1);
+                                String email = "";
+                                int id = 0;
+                                String cognome = "";
+                                String nome = "";
+                                for (int i = 0; i < tmp.length; i++) {
+                                    if (tmp[i].contains("email")) {
+                                        email = tmp[i].substring(tmp[i].indexOf(" ") + 1);
+                                    } else if (tmp[i].contains("id")) {
+                                        id = Integer.parseInt(tmp[i].substring((tmp[i].indexOf(" ") + 1)));
+                                    } else if (tmp[i].contains("Nome")) {
+                                        nome = tmp[i].substring(tmp[i].indexOf(" ") + 1);
+                                    } else {
+                                        cognome = tmp[i].substring(tmp[i].indexOf(" ") + 1);
+                                    }
+                                }
                                 Utente.getIstance().setId(id);
                                 Utente.getIstance().setCognome(cognome);
                                 Utente.getIstance().setEmail(email);
