@@ -18,7 +18,6 @@ public class Authentication {
         RestClient restClient = new RestClient("Utente", token);
         if (restClient.isStatus()) {
             String output = restClient.getOutput();
-            JOptionPane.showMessageDialog(null, output);
             String[] tmp = output.split("\n");
             String email = "";
             int id = 0;
