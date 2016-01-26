@@ -1,6 +1,8 @@
 package smartmuseumtable;
 
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import org.nfctools.examples.llcp.NDefListenerNuovo;
 
 /**
@@ -46,7 +48,7 @@ public class Museo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        //jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Smart Museum");
@@ -54,20 +56,21 @@ public class Museo extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Logout");
-
-        jTable1.setAutoCreateColumnsFromModel(true);
-        jTable1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                    {cognomeAutore, null},
-                    {null, null},
-                    {null, null},
-                    {null, null}
-                },
-                new String[]{
-                    "Title 1", "Title 2"
-                }
-        ));
+        //generazioe tabella
+        Vector<String> colonne=new Vector<String>();
+        colonne.addElement("Nome Dell'Opera");
+        colonne.addElement("Nome Autore");
+        colonne.addElement("Cognome Autore");
+        Vector<Vector> righe=new Vector<Vector>();
+        for(int i=0;i<n_Opera.length;i++){
+            Vector<String> row=new Vector<String>();
+            row.addElement(n_Opera[i]);
+            row.addElement(nomeAutore[i]);
+            row.addElement(cognomeAutore[i]);
+            righe.addElement(row);
+        }
+        jTable1=new JTable(righe,colonne);
+        
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
