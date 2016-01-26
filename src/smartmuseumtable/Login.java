@@ -21,13 +21,13 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         // Inizializza l'immagine "freccetta rossa"
         Image img=new ImageIcon("images/pitr_red_arrows_set_5.png").getImage();
-		Image newimg=img.getScaledInstance(150,300,Image.SCALE_SMOOTH);
-		jLabelFreccia.setIcon(new ImageIcon(newimg));
+    Image newimg=img.getScaledInstance(150,300,Image.SCALE_SMOOTH);
+    jLabelFreccia.setIcon(new ImageIcon(newimg));
         //Inizializza l'immagine per il QrCode dell'app        
         Image imgApp=new ImageIcon("C:\\Users\\Claudia\\Desktop/App.jpg").getImage();
-		Image newimgApp=imgApp.getScaledInstance(200,200,Image.SCALE_SMOOTH);
-		jLabelApp.setIcon(new ImageIcon(newimgApp));
-		
+    Image newimgApp=imgApp.getScaledInstance(200,200,Image.SCALE_SMOOTH);
+    jLabelApp.setIcon(new ImageIcon(newimgApp));
+    
     }
 
    
@@ -67,9 +67,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,10 +124,9 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         String token= new String(jPasswordField1.getPassword());
        Authentication autenticator = new Authentication(token);
-    }                                        
+    }
 
-    
-    public static void main(String args[]) throws IOException, InterruptedException {
+public static void main(String args[]) throws IOException, InterruptedException {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
