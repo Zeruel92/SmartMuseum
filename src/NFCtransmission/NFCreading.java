@@ -21,6 +21,7 @@ import org.nfctools.utils.LoggingNdefListener;
 import org.nfctools.utils.LoggingStatusListener;
 import smartmuseumtable.Museo;
 import smartmuseumtable.RestClient;
+import smartmuseumtable.Utente;
 
 public class NFCreading {
 
@@ -41,11 +42,20 @@ public class NFCreading {
                         if (NDefListenerNuovo.getIstance().hasToken()) {
                             String token = NDefListenerNuovo.getIstance().getRecord();
                             JOptionPane.showMessageDialog(null, token);
-                            RestClient rest=new RestClient("Utente",token);
-                            if(rest.isStatus()){
-                                Museo m=new Museo();
-                                String output=rest.getOutput();
-                                  JOptionPane.showMessageDialog(null, output);
+                            RestClient rest = new RestClient("Utente", token);
+                            if (rest.isStatus()) {
+                                String output = rest.getOutput();
+                                String[] tmp = output.split("\n");
+                                String email = tmp[1].substring(tmp[1].indexOf(" ") + 1);
+                                int id = Integer.parseInt(tmp[2].substring((tmp[2].indexOf(" ") + 1)));
+                                String cognome = tmp[3].substring(tmp[3].indexOf(" ") + 1);
+                                String nome = tmp[5].substring(tmp[5].indexOf(" ") + 1);
+                                Utente.getIstance().setId(id);
+                                Utente.getIstance().setCognome(cognome);
+                                Utente.getIstance().setEmail(email);
+                                Utente.getIstance().setNome(nome);
+                                Utente.getIstance().setToken(token);
+                                Museo m = new Museo();
                                 m.setVisible(true);
                             }
                         }

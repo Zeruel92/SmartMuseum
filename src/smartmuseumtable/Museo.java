@@ -1,5 +1,6 @@
 package smartmuseumtable;
 
+import javax.swing.JOptionPane;
 import org.nfctools.examples.llcp.NDefListenerNuovo;
 
 /**
@@ -13,6 +14,12 @@ public class Museo extends javax.swing.JFrame {
      */
     public Museo() {
         initComponents();
+        int id=Utente.getIstance().getId();
+        RestClient rest=new RestClient("Preferenze",id);
+        while(!rest.isStatus()){
+            
+        }
+        JOptionPane.showMessageDialog(null, rest.getOutput());
     }
 
     /**

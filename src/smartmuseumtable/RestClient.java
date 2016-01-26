@@ -93,6 +93,42 @@ public class RestClient {
         }
     }
 
+        public RestClient(String tabella, int id) {
+        status = false;
+        try {
+            URL url = new URL("http://52.17.122.110/index.php/" + tabella + "/" +id);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            BufferedReader read = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line = read.readLine();
+            String html = "";
+            while (line != null) {
+                html += line;
+                line = read.readLine();
+            }
+            //System.out.println(html);
+         //paring data
+            if (!html.equals("null")) {
+                JSONArray jArray = new JSONArray(html);
+                html="";
+                for (int i = 0; i < jArray.length(); i++) {
+                    JSONObject json = jArray.getJSONObject(i);
+                    Iterator<String> iter = json.keys();
+                    while (iter.hasNext()) {
+                        String key = iter.next();
+                        String value = json.getString(key);
+                        html += key + " " + value + "\n";
+                    }
+                }
+                status = true;
+            }
+            output=html;
+        } catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        } catch (IOException ioex) {
+            ioex.printStackTrace();
+        }
+    }
+    
     public boolean isStatus() {
         return status;
     }

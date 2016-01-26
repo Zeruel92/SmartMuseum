@@ -32,43 +32,43 @@ public class Utente {
         token="";
     }
 
-    public static String getNome() {
+    public  String getNome() {
         return nome;
     }
 
-    public static void setNome(String NOME) {
+    public  void setNome(String NOME) {
         nome = NOME;
     }
 
-    public static String getCognome() {
+    public  String getCognome() {
         return cognome;
     }
 
-    public static void setCognome(String Cognome) {
+    public  void setCognome(String Cognome) {
         cognome = Cognome;
     }
 
-    public static int getId() {
+    public  int getId() {
         return id;
     }
 
-    public static void setId(int ID) {
+    public  void setId(int ID) {
         id = ID;
     }
 
-    public static String getEmail() {
+    public  String getEmail() {
         return email;
     }
 
-    public static void setEmail(String Email) {
+    public  void setEmail(String Email) {
         email = Email;
     }
 
-    public static String getToken() {
+    public  String getToken() {
         return token;
     }
 
-    public static void setToken(String Token) {
+    public  void setToken(String Token) {
         token = Token;
     }
     
