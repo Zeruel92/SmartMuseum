@@ -24,7 +24,8 @@ public class Login extends javax.swing.JFrame {
     Image newimg=img.getScaledInstance(150,300,Image.SCALE_SMOOTH);
     jLabelFreccia.setIcon(new ImageIcon(newimg));
         //Inizializza l'immagine per il QrCode dell'app        
-        Image imgApp=new ImageIcon("C:\\Users\\Claudia\\Desktop/App.jpg").getImage();
+       // Image imgApp=new ImageIcon("C:\\Users\\Claudia\\Desktop/App.jpg").getImage();
+    Image imgApp=new ImageIcon("images/App.jpg").getImage();
     Image newimgApp=imgApp.getScaledInstance(200,200,Image.SCALE_SMOOTH);
     jLabelApp.setIcon(new ImageIcon(newimgApp));
     
