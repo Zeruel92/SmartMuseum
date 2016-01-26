@@ -129,6 +129,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     /* Pulsante che avvia l'autenticazione */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         String token= new String(jPasswordField1.getPassword());
+        jPasswordField1.setText("");
        Authentication autenticator = new Authentication(token);
     }
 
