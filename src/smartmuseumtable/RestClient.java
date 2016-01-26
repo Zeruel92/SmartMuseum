@@ -21,7 +21,8 @@ import org.json.*;
 public class RestClient {
 
     private boolean status;
-
+    private String output;
+    
     public RestClient(String tabella) throws IOException {
         String result = "";
         try {
@@ -68,11 +69,11 @@ public class RestClient {
                 html += line;
                 line = read.readLine();
             }
-            System.out.println(html);
+            //System.out.println(html);
          //paring data
             if (!html.equals("null")) {
                 JSONArray jArray = new JSONArray(html);
-
+                html="";
                 for (int i = 0; i < jArray.length(); i++) {
                     JSONObject json = jArray.getJSONObject(i);
                     Iterator<String> iter = json.keys();
@@ -84,7 +85,7 @@ public class RestClient {
                 }
                 status = true;
             }
-            System.out.println(html);
+            output=html;
         } catch (MalformedURLException ex) {
             ex.printStackTrace();
         } catch (IOException ioex) {
@@ -98,5 +99,8 @@ public class RestClient {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+    public String getOutput(){
+        return this.output;
     }
 }

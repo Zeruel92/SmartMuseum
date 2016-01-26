@@ -16,6 +16,8 @@ public class Authentication {
     Authentication(String token) {
        RestClient restClient = new RestClient("Utente",token);
       if( restClient.isStatus()){
+        String output=restClient.getOutput();
+        JOptionPane.showMessageDialog(null, output);
         Museo m=new Museo();
         m.setVisible(true);
       }

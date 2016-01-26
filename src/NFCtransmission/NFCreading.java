@@ -44,6 +44,8 @@ public class NFCreading {
                             RestClient rest=new RestClient("Utente",token);
                             if(rest.isStatus()){
                                 Museo m=new Museo();
+                                String output=rest.getOutput();
+                                  JOptionPane.showMessageDialog(null, output);
                                 m.setVisible(true);
                             }
                         }
