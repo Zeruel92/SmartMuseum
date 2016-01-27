@@ -61,7 +61,7 @@ public class Login extends javax.swing.JFrame {
         jLabelLoginSelection.setText("Selezionare la modalità di login preferita:\n");
 
         jLabelTap.setFont(new java.awt.Font("Arial", 0, 48)); 
-        jLabelTap.setText("<html>Avvicinare lo smartphone &nbsp&nbsp&nbsp&nbsp&nbsp Inserire token</html>");
+        jLabelTap.setText("<html>Avvicinare lo smartphone &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Inserire &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp token</html>");
 
         jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18)); 
 
@@ -112,7 +112,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(jLabelTap, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTap, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabelFreccia, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
