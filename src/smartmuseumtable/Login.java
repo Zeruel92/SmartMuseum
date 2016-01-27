@@ -54,14 +54,14 @@ public class Login extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setResizable(false);
 
-        jLabelDownload.setFont(new java.awt.Font("Arial", 0, 36)); 
-        jLabelDownload.setText("Download SMART MUSEUM app and sign up, please! ");
+         jLabelDownload.setFont(new java.awt.Font("Arial", 0, 36)); 
+        jLabelDownload.setText("Effettuare il download dell'app Smart Museum ");
 
         jLabelLoginSelection.setFont(new java.awt.Font("Arial", 0, 48)); 
-        jLabelLoginSelection.setText("Login selection:\n");
+        jLabelLoginSelection.setText("Selezionare la modalità di login preferita:\n");
 
         jLabelTap.setFont(new java.awt.Font("Arial", 0, 48)); 
-        jLabelTap.setText("TAP HERE     or    INSERT YOUR TOKEN");
+        jLabelTap.setText("<html>Avvicinare lo smartphone &nbsp&nbsp&nbsp&nbsp&nbsp Inserire token</html>");
 
         jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18)); 
 
@@ -90,7 +90,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                                 .addComponent(jLabelDownload)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabelApp))
-                            .addComponent(jLabelLoginSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabelLoginSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(507, 507, 507)
                         .addComponent(jLabelFreccia, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
