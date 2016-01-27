@@ -12,9 +12,10 @@ import org.nfctools.examples.llcp.NDefListenerNuovo;
  * @authors Cosimo Antonaci & Gabriele Tramonte
  */
 public class Museo extends javax.swing.JFrame {
-    private String[] n_Opera;
-    private String[] nomeAutore;
-    private String[] cognomeAutore;
+    private Vector<String> n_Opera;
+    private Vector<String> nomeAutore;
+    private Vector<String> cognomeAutore;
+    private Vector<Integer> id_Opere;
     /**
      * Creates new form Museo
      */
@@ -25,15 +26,20 @@ public class Museo extends javax.swing.JFrame {
             
         }
         String[] tmp=rest.getOutput().split("\n");
-        n_Opera=new String[tmp.length/3];
-        nomeAutore=new String[tmp.length/3];
-        cognomeAutore=new String[tmp.length/3];
-        int k=0;
-        for(int i=0;i<tmp.length;i+=3){
-            n_Opera[k]=tmp[i].substring(tmp[i].indexOf(" ") + 1);
-            nomeAutore[k]=tmp[i+1].substring(tmp[i+1].indexOf(" ")+1);
-            cognomeAutore[k]=tmp[i+2].substring(tmp[i+2].indexOf(" ")+1);
-            k++;
+        n_Opera=new Vector<String>();
+        nomeAutore=new Vector<String>();
+        cognomeAutore=new Vector<String>();
+        id_Opere=new Vector<Integer>();
+        for(int i=0;i<tmp.length;i++){
+            if(tmp[i].contains("NomeOpera"))
+            n_Opera.addElement(tmp[i].substring(tmp[i].indexOf(" ") + 1));
+            else if(tmp[i].contains("Nome"))
+            nomeAutore.addElement(tmp[i].substring(tmp[i].indexOf(" ")+1));
+            else if(tmp[i].contains("Cognome"))
+            cognomeAutore.addElement(tmp[i].substring(tmp[i].indexOf(" ")+1));
+            else
+            id_Opere.addElement(Integer.parseInt(tmp[i].substring(tmp[i].indexOf(" ")+1)));
+            
         }
         initComponents();
     }
@@ -68,15 +74,17 @@ public class Museo extends javax.swing.JFrame {
         });
         //generazioe tabella
         Vector<String> colonne=new Vector<String>();
+        colonne.addElement("Identificativo Opera");
         colonne.addElement("Nome Dell'Opera");
         colonne.addElement("Nome Autore");
         colonne.addElement("Cognome Autore");
         Vector<Vector> righe=new Vector<Vector>();
-        for(int i=0;i<n_Opera.length;i++){
+        for(int i=0;i<n_Opera.size();i++){
             Vector<String> row=new Vector<String>();
-            row.addElement(n_Opera[i]);
-            row.addElement(nomeAutore[i]);
-            row.addElement(cognomeAutore[i]);
+            row.addElement(Integer.toString(id_Opere.elementAt(i)));
+            row.addElement(n_Opera.elementAt(i));
+            row.addElement(nomeAutore.elementAt(i));
+            row.addElement(cognomeAutore.elementAt(i));
             righe.addElement(row);
         }
         jTable1=new JTable(righe,colonne);
