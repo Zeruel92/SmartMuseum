@@ -16,13 +16,14 @@ import org.json.*;
 
 /**
  *
- * @author Claudia
+ * @author Cosimo Antonaci
+ * @author Gabriele Tramonte
  */
 public class RestClient {
 
     private boolean status;
     private String output;
-    
+
     public RestClient(String tabella) throws IOException {
         String result = "";
         try {
@@ -70,10 +71,10 @@ public class RestClient {
                 line = read.readLine();
             }
             //System.out.println(html);
-         //paring data
+            //paring data
             if (!html.equals("null")) {
                 JSONArray jArray = new JSONArray(html);
-                html="";
+                html = "";
                 for (int i = 0; i < jArray.length(); i++) {
                     JSONObject json = jArray.getJSONObject(i);
                     Iterator<String> iter = json.keys();
@@ -85,7 +86,7 @@ public class RestClient {
                 }
                 status = true;
             }
-            output=html;
+            output = html;
         } catch (MalformedURLException ex) {
             ex.printStackTrace();
         } catch (IOException ioex) {
@@ -93,10 +94,10 @@ public class RestClient {
         }
     }
 
-        public RestClient(String tabella, int id) {
+    public RestClient(String tabella, int id) {
         status = false;
         try {
-            URL url = new URL("http://52.17.122.110/index.php/" + tabella + "/" +id);
+            URL url = new URL("http://52.17.122.110/index.php/" + tabella + "/" + id);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             BufferedReader read = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line = read.readLine();
@@ -106,10 +107,10 @@ public class RestClient {
                 line = read.readLine();
             }
             //System.out.println(html);
-         //paring data
+            //paring data
             if (!html.equals("null")) {
                 JSONArray jArray = new JSONArray(html);
-                html="";
+                html = "";
                 for (int i = 0; i < jArray.length(); i++) {
                     JSONObject json = jArray.getJSONObject(i);
                     Iterator<String> iter = json.keys();
@@ -120,15 +121,18 @@ public class RestClient {
                     }
                 }
                 status = true;
+            } else {
+                html = "No record";
+                status = true;
             }
-            output=html;
+            output = html;
         } catch (MalformedURLException ex) {
             ex.printStackTrace();
         } catch (IOException ioex) {
             ioex.printStackTrace();
         }
     }
-    
+
     public boolean isStatus() {
         return status;
     }
@@ -136,7 +140,8 @@ public class RestClient {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    public String getOutput(){
+
+    public String getOutput() {
         return this.output;
     }
 }
