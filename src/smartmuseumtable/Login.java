@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
         jLabelApp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Benvenuti in uno SmartMuseum");
+        setTitle("Benvenuti in uno Smart Museum");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setResizable(false);
 
@@ -61,7 +61,7 @@ public class Login extends javax.swing.JFrame {
         jLabelLoginSelection.setText("Selezionare la modalità di login preferita:\n");
 
         jLabelTap.setFont(new java.awt.Font("Arial", 0, 48)); 
-        jLabelTap.setText("<html>Avvicinare lo smartphone &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Inserire &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp token</html>");
+        jLabelTap.setText("<html>Avvicinare lo smartphone &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Inserire &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp token</html>");
 
         jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18)); 
 
