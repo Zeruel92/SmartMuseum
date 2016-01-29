@@ -51,7 +51,9 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Benvenuti in uno Smart Museum");
-        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        int larghezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+        int altezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+        setBounds(new java.awt.Rectangle(0, 0, altezza, larghezza));
         setResizable(false);
 
          jLabelDownload.setFont(new java.awt.Font("Arial", 0, 36)); 
