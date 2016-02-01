@@ -7,8 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import org.nfctools.examples.llcp.NDefListenerNuovo;
 
-/**
- *
+/*
  * @authors Cosimo Antonaci & Gabriele Tramonte
  */
 public class Museo extends javax.swing.JFrame {
