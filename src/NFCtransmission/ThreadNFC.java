@@ -1,6 +1,6 @@
 /* Questa classe legge il token dalla libreria dell'ACR122U denominata
-   "NFC-tools" (opportunatamente formattata) e lo invia al Server rest di Amazon,
-   ricevendo i dati dell'utente registrato */
+ "NFC-tools" (opportunatamente formattata) e lo invia al Server rest di Amazon,
+ ricevendo i dati dell'utente registrato */
 package NFCtransmission;
 
 import org.nfctools.examples.llcp.NDefListenerNuovo;

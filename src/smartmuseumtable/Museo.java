@@ -1,7 +1,8 @@
-/**    Questa classe si divide in due parti:
-     * la prima parte invia una chiamata rest al server per scaricare le 
-     * preferenze in base all'ID dell'utente; la seconda invece genera la tabella 
-     */
+/**
+ * Questa classe si divide in due parti: la prima parte invia una chiamata rest
+ * al server per scaricare le preferenze in base all'ID dell'utente; la seconda
+ * invece genera la tabella
+ */
 package smartmuseumtable;
 
 import java.awt.BorderLayout;
@@ -23,7 +24,7 @@ public class Museo extends javax.swing.JFrame {
     private Vector<Integer> id_Opere;
     private JPanel descrizione;
     private JPanel immagine;
-    
+
     public Museo() {
         int id = Utente.getIstance().getId();
         RestClient rest = new RestClient("Preferenze", id);
@@ -47,7 +48,7 @@ public class Museo extends javax.swing.JFrame {
                     nomeAutore.addElement(tmp[i].substring(tmp[i].indexOf(" ") + 1));
                 } else if (tmp[i].contains("Cognome")) {
                     cognomeAutore.addElement(tmp[i].substring(tmp[i].indexOf(" ") + 1));
-                } else if(tmp[i].contains("idOpera")){
+                } else if (tmp[i].contains("idOpera")) {
                     id_Opere.addElement(Integer.parseInt(tmp[i].substring(tmp[i].indexOf(" ") + 1)));
                 }
 
@@ -55,7 +56,7 @@ public class Museo extends javax.swing.JFrame {
         }
         initComponents();
     }
-                            
+
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -64,13 +65,12 @@ public class Museo extends javax.swing.JFrame {
 
         this.addWindowListener(new MuseoWindowListener());
 
-           
         setTitle("Smart Museum");
         int larghezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         int altezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
         setBounds(new java.awt.Rectangle(0, 0, larghezza, altezza));
         setResizable(false);
-        jButton1.setFont(new java.awt.Font("Arial", 0, 24)); 
+        jButton1.setFont(new java.awt.Font("Arial", 0, 24));
         jButton1.setText("Logout");
         jButton1.addActionListener(new ActionListener() {
 
@@ -105,23 +105,25 @@ public class Museo extends javax.swing.JFrame {
             }
         }
         jTable1 = new JTable(righe, colonne);
-        jTable1.getSelectionModel().addListSelectionListener(new TableListener(this,jTable1));
+        jTable1.getSelectionModel().addListSelectionListener(new TableListener(this, jTable1));
         jScrollPane1.setViewportView(jTable1);
-        immagine=new JPanel();
-        descrizione=new JPanel();
+        immagine = new JPanel();
+        descrizione = new JPanel();
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(jScrollPane1,BorderLayout.NORTH);
-        this.getContentPane().add(immagine,BorderLayout.EAST);
-        this.getContentPane().add(descrizione,BorderLayout.WEST);
-        JPanel south_p=new JPanel();
+        this.getContentPane().add(jScrollPane1, BorderLayout.NORTH);
+        this.getContentPane().add(immagine, BorderLayout.EAST);
+        this.getContentPane().add(descrizione, BorderLayout.WEST);
+        JPanel south_p = new JPanel();
         south_p.setLayout(new BorderLayout());
-        this.getContentPane().add(south_p,BorderLayout.SOUTH);
-        south_p.add(jButton1,BorderLayout.CENTER);
+        this.getContentPane().add(south_p, BorderLayout.SOUTH);
+        south_p.add(jButton1, BorderLayout.CENTER);
     }// </editor-fold>                        
-    public JPanel getDescrizione(){
+
+    public JPanel getDescrizione() {
         return descrizione;
     }
-    public JPanel getImmagine(){
+
+    public JPanel getImmagine() {
         return immagine;
     }
     // dichiarazione variabili                   

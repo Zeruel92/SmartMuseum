@@ -1,8 +1,7 @@
 /* Questa classe legge il token dal form "Inserire token" della classe denominata
-   "Login" e lo invia al Server rest di Amazon,
-   ricevendo i dati dell'utente registrato altrimenti notifica l'errore di 
-   battitura sulla  tastiera */
-
+ "Login" e lo invia al Server rest di Amazon,
+ ricevendo i dati dell'utente registrato altrimenti notifica l'errore di 
+ battitura sulla  tastiera */
 package smartmuseumtable;
 
 import javax.swing.JOptionPane;

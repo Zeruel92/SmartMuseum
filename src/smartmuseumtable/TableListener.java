@@ -1,9 +1,9 @@
 /* Questa classe fa da listener agli ogetti della tabella della classe Museo;
-   se cliccata una riga della tabella, scarica descrizione ed immagine associata
-   all' id dell'opera e le inserisce nella schermata della classe Museo
+ se cliccata una riga della tabella, scarica descrizione ed immagine associata
+ all' id dell'opera e le inserisce nella schermata della classe Museo
 
-  @author Gabriele Tramonte
-  @author Cosimo Antonaci
+ @author Gabriele Tramonte
+ @author Cosimo Antonaci
  */
 package smartmuseumtable;
 
@@ -43,7 +43,7 @@ public class TableListener implements ListSelectionListener {
                 descrizione = tmp[i].substring(tmp[i].indexOf(" ") + 1);
             }
         }
-        JLabel l_descrizione = new JLabel("<html>"+descrizione+"</html>");
+        JLabel l_descrizione = new JLabel("<html>" + descrizione + "</html>");
         this.m.getDescrizione().removeAll();
         this.m.getDescrizione().add(l_descrizione);
         try {
