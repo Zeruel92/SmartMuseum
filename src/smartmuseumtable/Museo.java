@@ -17,7 +17,8 @@ public class Museo extends javax.swing.JFrame {
     private Vector<String> nomeAutore;
     private Vector<String> cognomeAutore;
     private Vector<Integer> id_Opere;
-
+    private JPanel descrizione;
+    private JPanel immagine;
     /**
      * Creates new form Museo
      */
@@ -40,7 +41,7 @@ public class Museo extends javax.swing.JFrame {
             for (int i = 0; i < tmp.length; i++) {
                 if (tmp[i].contains("NomeOpera")) {
                     n_Opera.addElement(tmp[i].substring(tmp[i].indexOf(" ") + 1));
-                } else if (tmp[i].contains("Nome")) {
+                } else if (tmp[i].contains("Nome ")) {
                     nomeAutore.addElement(tmp[i].substring(tmp[i].indexOf(" ") + 1));
                 } else if (tmp[i].contains("Cognome")) {
                     cognomeAutore.addElement(tmp[i].substring(tmp[i].indexOf(" ") + 1));
@@ -111,14 +112,23 @@ public class Museo extends javax.swing.JFrame {
         jTable1 = new JTable(righe, colonne);
         jTable1.getSelectionModel().addListSelectionListener(new TableListener(this,jTable1));
         jScrollPane1.setViewportView(jTable1);
+        immagine=new JPanel();
+        descrizione=new JPanel();
         this.getContentPane().setLayout(new BorderLayout());
         this.getContentPane().add(jScrollPane1,BorderLayout.NORTH);
+        this.getContentPane().add(immagine,BorderLayout.EAST);
+        this.getContentPane().add(descrizione,BorderLayout.WEST);
         JPanel south_p=new JPanel();
         south_p.setLayout(new BorderLayout());
         this.getContentPane().add(south_p,BorderLayout.SOUTH);
         south_p.add(jButton1,BorderLayout.CENTER);
     }// </editor-fold>                        
-
+    public JPanel getDescrizione(){
+        return descrizione;
+    }
+    public JPanel getImmagine(){
+        return immagine;
+    }
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;

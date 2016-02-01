@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -37,15 +38,16 @@ public class TableListener implements ListSelectionListener {
                 descrizione = tmp[i].substring(tmp[i].indexOf(" ") + 1);
             }
         }
-        JLabel l_descrizione = new JLabel(descrizione);
-        this.m.getContentPane().add(l_descrizione, BorderLayout.WEST);
+        JLabel l_descrizione = new JLabel("<html>"+descrizione+"</html>");
+        this.m.getDescrizione().removeAll();
+        this.m.getDescrizione().add(l_descrizione);
         try {
             Image image = Toolkit.getDefaultToolkit().createImage(new URL("http://52.17.122.110/opera_" + selezione + ".jpg"));
             Image newimg = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
             JLabel immagineOpera = new JLabel();
             immagineOpera.setIcon(new ImageIcon(newimg));
-
-            this.m.getContentPane().add(immagineOpera, BorderLayout.EAST);
+            this.m.getImmagine().removeAll();
+            this.m.getImmagine().add(immagineOpera);
         } catch (MalformedURLException ex) {
             Logger.getLogger(TableListener.class.getName()).log(Level.SEVERE, null, ex);
         }
