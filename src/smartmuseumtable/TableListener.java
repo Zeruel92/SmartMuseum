@@ -1,6 +1,5 @@
 package smartmuseumtable;
 
-import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.MalformedURLException;
@@ -9,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
