@@ -77,7 +77,7 @@ public class Museo extends javax.swing.JFrame {
         int larghezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         int altezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
         setBounds(new java.awt.Rectangle(0, 0, altezza, larghezza));
-        setResizable(false);
+        //setResizable(false);
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Logout");
         jButton1.addActionListener(new ActionListener() {
