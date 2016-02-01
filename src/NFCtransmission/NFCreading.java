@@ -1,3 +1,10 @@
+/* Questa classe ha il compito di estrapolare dall' ACR122U il token di 
+   autenticazione e rimane in ascolto finche' è attiva la classe Login */  
+
+/*
+ * @author Gabriele Tramonte
+ * @author Cosimo Antonaci
+ */
 package NFCtransmission;
 
 import java.util.logging.Level;
@@ -5,6 +12,8 @@ import java.util.logging.Logger;
 import smartmuseumtable.Login;
 import org.nfctools.examples.llcp.LlcpService;
 import smartmuseumtable.Utente;
+
+// Costruzione oggetti
 
 public class NFCreading implements Runnable {
     private Login l;
@@ -23,7 +32,10 @@ public class NFCreading implements Runnable {
         }
 
     }
-
+/* Thread che controlla le schermate di Login e Museo
+    -Sel'utente è loggato disabilita il Login e l'ascolto dell'ACR122U
+    -Altrimenti riabilita il Login e l'ascolto dell'ACR122 
+    */
     @Override
     public void run() {
         

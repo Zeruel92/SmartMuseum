@@ -1,3 +1,6 @@
+/* Questa classe si occupa di effettuare il logout dell'utente un a volta 
+   cliccato il tasto x di chiusura finestra della classe Museo */
+
 package smartmuseumtable;
 
 import java.awt.event.WindowEvent;

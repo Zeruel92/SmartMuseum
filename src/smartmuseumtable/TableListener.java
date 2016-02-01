@@ -1,3 +1,10 @@
+/* Questa classe fa da listener agli ogetti della tabella della classe Museo;
+   se cliccata una riga della tabella, scarica descrizione ed immagine associata
+   all' id dell'opera e le inserisce nella schermata della classe Museo
+
+  @author Gabriele Tramonte
+  @author Cosimo Antonaci
+ */
 package smartmuseumtable;
 
 import java.awt.Image;
@@ -14,8 +21,8 @@ import javax.swing.event.ListSelectionListener;
 
 public class TableListener implements ListSelectionListener {
 
-    private Museo m;
-    private JTable tab;
+    private Museo m;//riferimento alla classe Museo
+    private JTable tab;//riferimento alla tabella della classe Museo
 
     public TableListener(Museo m, JTable tab) {
         this.m = m;

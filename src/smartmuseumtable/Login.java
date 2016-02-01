@@ -150,18 +150,7 @@ public static void main(String args[]) throws IOException, InterruptedException 
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-       
-        /* Crea e visualizza il form */
-      /*  java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-            
-            
-            
-        });*/
-        
+        }  
        
           /* Avvia subito la classe NFCreading affinche' si metta in ascolto
              attraverso il lettore NFC per la ricezione del TOKEN */

@@ -1,3 +1,4 @@
+/* Questa classe gestisce le chiamate rest al server di Amazon */
 package smartmuseumtable;
 
 import java.io.BufferedReader;
@@ -16,9 +17,11 @@ import org.json.*;
 
 public class RestClient {
 
-    private boolean status;
-    private String output;
-
+    private boolean status;// diventa true una volta che la comunicazione col server è completata
+    private String output;// contiene il risultato della chiamata rest opportunatamente formattato in stringa
+    
+    /*Questo costruttore fa una richiesta GET (di http) alla tabella passata 
+      come parametro e scarica la lista completa degli elementi di quella tabella */
     public RestClient(String tabella) throws IOException {
         String result = "";
         try {
@@ -37,7 +40,7 @@ public class RestClient {
         } catch (Exception e) {
 
         }
-//paring data
+/*parsing data- JSON to TextPlain( testo in chiaro) */ 
 
         JSONArray jArray = new JSONArray(result);
 
@@ -52,7 +55,8 @@ public class RestClient {
         }
 
     }
-
+/*Questo costruttore viene usato in fase di login e manda una richiesta al 
+    server (GET), con il token, per ottenere i dati dell'utente */
     public RestClient(String tabella, String token) {
         status = false;
         try {
@@ -65,8 +69,8 @@ public class RestClient {
                 html += line;
                 line = read.readLine();
             }
-            //System.out.println(html);
-            //paring data
+            
+            //parsing data
             if (!html.equals("null")) {
                 JSONArray jArray = new JSONArray(html);
                 html = "";
@@ -88,7 +92,8 @@ public class RestClient {
             ioex.printStackTrace();
         }
     }
-
+/* Questo costruttore è generico! Basta specificargli tabella e id della risorsa
+    che si vuole ottenere...opera,utente etc.. e scarica tutte le info associate */
     public RestClient(String tabella, int id) {
         status = false;
         try {
@@ -101,8 +106,8 @@ public class RestClient {
                 html += line;
                 line = read.readLine();
             }
-            //System.out.println(html);
-            //paring data
+            
+            //parsing data
             if (!html.equals("null")) {
                 JSONArray jArray = new JSONArray(html);
                 html = "";
@@ -127,15 +132,11 @@ public class RestClient {
             ioex.printStackTrace();
         }
     }
-
+//metodo GET-verifica stato dell'operazione
     public boolean isStatus() {
-        return status;
+        return status;//se true(operazione completata) se false(operazione in corso)
     }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
+//metodo che una volta completata la richiesta permette di ottenere l'output in TextPlain
     public String getOutput() {
         return this.output;
     }

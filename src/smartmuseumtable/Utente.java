@@ -1,3 +1,4 @@
+/* Questa classe mantiene in memoria i dati utente finche' è loggato al sistema */ 
 package smartmuseumtable;
 
 /*
