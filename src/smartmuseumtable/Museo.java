@@ -4,13 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Vector;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import org.nfctools.examples.llcp.NDefListenerNuovo;
 
 /*
  * @authors Cosimo Antonaci & Gabriele Tramonte
@@ -76,9 +72,8 @@ public class Museo extends javax.swing.JFrame {
         setTitle("Smart Museum");
         int larghezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         int altezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-        System.out.println("DIMENSIONE"+altezza+" "+larghezza);
         setBounds(new java.awt.Rectangle(0, 0, larghezza, altezza));
-        //setResizable(false);
+        setResizable(false);
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Logout");
         jButton1.addActionListener(new ActionListener() {
