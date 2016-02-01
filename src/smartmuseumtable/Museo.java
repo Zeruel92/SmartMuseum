@@ -2,6 +2,8 @@ package smartmuseumtable;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -64,9 +66,10 @@ public class Museo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        //jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.addWindowListener(new MuseoWindowListener());
+
+           
         setTitle("Smart Museum");
         setPreferredSize(new java.awt.Dimension(1535, 1246));
 
@@ -105,7 +108,7 @@ public class Museo extends javax.swing.JFrame {
             }
         }
         jTable1 = new JTable(righe, colonne);
-
+        jTable1.getSelectionModel().addListSelectionListener(new TableListener(this,jTable1));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
