@@ -14,6 +14,9 @@ public class Authentication {
 
     Authentication(String token) {
         RestClient restClient = new RestClient("Utente", token);
+        while(!restClient.isStatus()){
+            //attesa dei dati
+        }
         if (restClient.isStatus()) {
             String output = restClient.getOutput();
             String[] tmp = output.split("\n");
