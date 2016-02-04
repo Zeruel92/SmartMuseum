@@ -27,7 +27,7 @@ public class Login extends javax.swing.JFrame {
         Image img = Toolkit.getDefaultToolkit().createImage(new URL("http://52.17.122.110/pitr_red_arrows_set_5.png"));
         Image newimg = img.getScaledInstance(150, 300, Image.SCALE_SMOOTH);
         jLabelFreccia.setIcon(new ImageIcon(newimg));
-
+        jLabelFreccia.setBounds(150, 10, 150, 300);
         //Inizializza l'immagine per il QrCode dell'app        
         Image imgApp = Toolkit.getDefaultToolkit().createImage(new URL("http://52.17.122.110/App.jpg"));
         Image newimgApp = imgApp.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
@@ -62,7 +62,7 @@ public class Login extends javax.swing.JFrame {
         JPanel nord=new JPanel();
         nord.setLayout(new BorderLayout());
         nord.add(jLabelDownload,BorderLayout.WEST);
-        nord.add(jLabelApp,BorderLayout.EAST);
+        nord.add(jLabelApp,BorderLayout.CENTER);
         nord.add(jLabelLoginSelection,BorderLayout.SOUTH);
         
         jLabelTap.setFont(new java.awt.Font("Arial", 0, 48));
@@ -82,10 +82,12 @@ public class Login extends javax.swing.JFrame {
         c3.setLayout(null);
         c3.add(jPasswordField1);
         c3.add(jButtonSignIn);
-        c1.add(jLabelFreccia,BorderLayout.CENTER);
+        JPanel p=new JPanel();
+        p.setLayout(null);
+        p.add(jLabelFreccia);
+        c1.add(p,BorderLayout.CENTER);
         c2.add(jLabelToken,BorderLayout.NORTH);
         c2.add(c3,BorderLayout.CENTER);
-        //c2.add(jButtonSignIn,BorderLayout.SOUTH);
         jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18));
         jPasswordField1.setBounds(0, 0, 350, 30);
         jButtonSignIn.setFont(new java.awt.Font("Arial", 0, 24));
@@ -98,56 +100,6 @@ public class Login extends javax.swing.JFrame {
         });
         this.getContentPane().add(nord,BorderLayout.NORTH);
         this.getContentPane().add(centro,BorderLayout.CENTER);
-      /*  javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelTap, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))
-                .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabelDownload)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(jLabelApp))
-                                                .addComponent(jLabelLoginSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(507, 507, 507)
-                                        .addComponent(jLabelFreccia, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(166, 166, 166)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(314, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelDownload)
-                                .addComponent(jLabelApp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelLoginSelection)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jLabelTap, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jLabelFreccia, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(202, 202, 202)
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButtonSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(626, Short.MAX_VALUE))
-        );
-        */
         pack();
     }
 
