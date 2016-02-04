@@ -4,18 +4,22 @@
 package smartmuseumtable;
 
 import NFCtransmission.NFCreading;
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
  * @authors Cosimo Antonaci & Gabriele Tramonte
  */
 public class Login extends javax.swing.JFrame {
+    private JLabel jLabelToken;
 
     public Login() throws MalformedURLException {
         initComponents();
@@ -28,7 +32,10 @@ public class Login extends javax.swing.JFrame {
         Image imgApp = Toolkit.getDefaultToolkit().createImage(new URL("http://52.17.122.110/App.jpg"));
         Image newimgApp = imgApp.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         jLabelApp.setIcon(new ImageIcon(newimgApp));
-
+        int larghezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+        int altezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+        setBounds(new java.awt.Rectangle(0, 0, larghezza, altezza));
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,40 +49,62 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButtonSignIn = new javax.swing.JButton();
         jLabelApp = new javax.swing.JLabel();
-
+        jLabelToken=new JLabel();
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Benvenuti in uno Smart Museum");
-        int larghezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-        int altezza = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-        setBounds(new java.awt.Rectangle(0, 0, larghezza, altezza));
-        setResizable(false);
-
+        this.getContentPane().setLayout(new BorderLayout());
         jLabelDownload.setFont(new java.awt.Font("Arial", 0, 36));
         jLabelDownload.setText("Effettuare il download dell'app Smart Museum ");
-
+        
         jLabelLoginSelection.setFont(new java.awt.Font("Arial", 0, 48));
         jLabelLoginSelection.setText("Selezionare la modalità di login preferita:\n");
-
+        JPanel nord=new JPanel();
+        nord.setLayout(new BorderLayout());
+        nord.add(jLabelDownload,BorderLayout.WEST);
+        nord.add(jLabelApp,BorderLayout.EAST);
+        nord.add(jLabelLoginSelection,BorderLayout.SOUTH);
+        
         jLabelTap.setFont(new java.awt.Font("Arial", 0, 48));
-        jLabelTap.setText("<html>Avvicinare lo smartphone &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Inserire &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp token</html>");
-
+        jLabelTap.setText("Avvicinare lo smartphone");
+        jLabelToken.setFont(new java.awt.Font("Arial",0,48));
+        jLabelToken.setText("Inserire Token:");
+        JPanel centro=new JPanel();
+        centro.setLayout(new BorderLayout());
+        JPanel c1=new JPanel();
+        JPanel c2=new JPanel();
+        c1.setLayout(new BorderLayout());
+        c2.setLayout(new BorderLayout());
+        centro.add(c1,BorderLayout.CENTER);
+        centro.add(c2,BorderLayout.EAST);
+        c1.add(jLabelTap,BorderLayout.NORTH);
+        JPanel c3=new JPanel();
+        c3.setLayout(null);
+        c3.add(jPasswordField1);
+        c3.add(jButtonSignIn);
+        c1.add(jLabelFreccia,BorderLayout.CENTER);
+        c2.add(jLabelToken,BorderLayout.NORTH);
+        c2.add(c3,BorderLayout.CENTER);
+        //c2.add(jButtonSignIn,BorderLayout.SOUTH);
         jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18));
-
+        jPasswordField1.setBounds(0, 0, 350, 30);
         jButtonSignIn.setFont(new java.awt.Font("Arial", 0, 24));
+        jButtonSignIn.setBounds(75, 35, 150, 40);
         jButtonSignIn.setText("Sign In");
         jButtonSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        this.getContentPane().add(nord,BorderLayout.NORTH);
+        this.getContentPane().add(centro,BorderLayout.CENTER);
+      /*  javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelTap, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTap, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(160, 160, 160))
                 .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +147,7 @@ public class Login extends javax.swing.JFrame {
                                         .addComponent(jButtonSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(626, Short.MAX_VALUE))
         );
-
+        */
         pack();
     }
 
