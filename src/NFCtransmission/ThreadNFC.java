@@ -24,6 +24,9 @@ public class ThreadNFC implements Runnable {
             if (NDefListenerNuovo.getIstance().hasToken()) {
                 String token = NDefListenerNuovo.getIstance().getRecord();
                 RestClient rest = new RestClient("Utente", token);
+                while(!rest.isStatus()){
+                    //waiting for data
+                }
                 if (rest.isStatus()) {
                     String output = rest.getOutput();
                     String[] tmp = output.split("\n");
@@ -38,7 +41,7 @@ public class ThreadNFC implements Runnable {
                             id = Integer.parseInt(tmp[i].substring((tmp[i].indexOf(" ") + 1)));
                         } else if (tmp[i].contains("Nome")) {
                             nome = tmp[i].substring(tmp[i].indexOf(" ") + 1);
-                        } else {
+                        } else if (tmp[i].contains("Cognome")) {
                             cognome = tmp[i].substring(tmp[i].indexOf(" ") + 1);
                         }
                     }
@@ -47,6 +50,7 @@ public class ThreadNFC implements Runnable {
                     Utente.getIstance().setEmail(email);
                     Utente.getIstance().setNome(nome);
                     Utente.getIstance().setToken(token);
+                    
                     Museo m = new Museo();
                     m.setVisible(true);
                 }
